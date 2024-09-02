@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luke Howland</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .profile-img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        nav {
+            margin-top: 20px;
+            text-align: center;
+        }
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: center;
+        }
+        .social-links {
+            display: inline-flex;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .social-links a {
+            margin: 0 15px;
+            color: #333;
+            text-decoration: none;
+            font-size: 1.5em;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .social-links a:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        .contact-form {
+            margin-top: 50px;
+            text-align: left;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .contact-form button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Luke Howland</h1>
+       <img src="img/presetacion.jpg" class="profile-img"alt="100%"/>
+    </header>
+
+<div class="container">
+    <h2>¡Hola! Soy Luke Howland</h2>
+    <p>Bienvenido a mi página personal. Conéctate conmigo a través de mis redes sociales a continuación.</p>
+
+    <!-- Cajón de enlaces sociales -->
+    <div class="social-links">
+            <a href="https://X.com/Ian_samu16" target="_blank">X</a>  
+            <a href="https://instagram.com/ian_samu16" target="_blank">Instagram</a>
+            <a href="https://TikTok.com/ian_luca04.url" target="_blank">TikTok</a>
+            <a href="https://Spotify.com/31uztem5xvit74lrr7pc4pkl5bvi.url" target="_blank">Spotify</a>
+            <a href="https://Threads.com/ian_samu16.url" target="blank">Threads</a>
+            <a href="https://Pinterest.com/iansamu16.url" target="_blank">Pinterest</a>
+    </div>
+
+    <!-- Formulario de contacto -->
+    <div class="contact-form" id="contacto">
+        <h2>Contacto</h2>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Tu nombre" required>
+            <input type="email" name="email" placeholder="Tu correo electrónico" required>
+            <textarea name="message" placeholder="Tu mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</div>
+
+    <!-- Script de EmailJS para enviar correos -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+       (function(){
+          emailjs.init("YOUR_USER_ID");
+       })();
+
+       document.getElementById('contact-form').addEventListener('submit', function(event) {
+           event.preventDefault();
+           emailjs.sendForm('service_bt6k6ra', 'template_96fgsc2', this)
+               .then(function() {
+                   alert('Mensaje enviado!');
+               }, function(error) {
+                   alert('Error: ' + JSON.stringify(error));
+               });
+       });
+    </script>
+</body>
+</html>
